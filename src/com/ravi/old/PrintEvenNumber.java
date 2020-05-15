@@ -12,7 +12,7 @@ public class PrintEvenNumber implements Runnable {
         synchronized (obj) {
             for (int i = 0; i < 20; ) {
                 try {
-                    obj.notifyAll();
+                   // obj.notifyAll();
                     System.out.println(i);
                     i = i + 2;
                     Thread.sleep(2000);
@@ -22,6 +22,7 @@ public class PrintEvenNumber implements Runnable {
                 }
 
             }
+            obj.notifyAll();
         }
     }
 }

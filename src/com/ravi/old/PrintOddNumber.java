@@ -12,7 +12,7 @@ public class PrintOddNumber implements Runnable {
         synchronized (obj) {
             for (int i = 1; i < 20; ) {
                 try {
-                    obj.notifyAll();
+                    //obj.notifyAll();
                     System.out.println(i);
                     i = i + 2;
                     obj.wait();
@@ -20,6 +20,7 @@ public class PrintOddNumber implements Runnable {
                     e.printStackTrace();
                 }
             }
+            obj.notifyAll();
         }
     }
 }
